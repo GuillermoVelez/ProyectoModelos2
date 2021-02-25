@@ -14,11 +14,12 @@ $conex = new mysqli("localhost","root","","tutorial");
 }else{
 	echo "<h2> Si nos conectamos<h2>";
 }*/
+
 $sql= "INSERT INTO alumnos(idAlumno,Nombre,Apellido,Edad,Direccion_Residencia) VALUES ('$IdentifiacionRecibido','$NombreRecibido','$ApellidoRecibido','$EdadRecibido','$DireccionRecibido')";
 if ($conex->query($sql)=== TRUE){
-	header("index.html");
+	echo json_encode('El Estudiante pudo ser registrado');
 }else{
-	//echo "No se pudo identificar: " . $sql . "<br>" . $conex->error;
+	echo json_encode('El Estudiante no pudo ser registrado');
 }
 $conex->close();
 ?>
