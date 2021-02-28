@@ -1,5 +1,7 @@
 var formulario = document.getElementById('formulario');
 
+
+
 formulario.addEventListener('submit', function(ev){
 	ev.preventDefault();
 	var datos= new FormData(formulario);

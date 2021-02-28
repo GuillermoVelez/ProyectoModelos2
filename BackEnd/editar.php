@@ -14,12 +14,12 @@ $conex = new mysqli("localhost","root","","tutorial");
 }else{
 	echo "<h2> Si nos conectamos<h2>";
 }*/
+$sql= "UPDATE alumnos SET Nombre='$NombreRecibido', Apellido='$ApellidoRecibido', Edad='$EdadRecibido', Direccion_Residencia='$DireccionRecibido' WHERE idAlumno='$IdentifiacionRecibido'";
 
-$sql= "INSERT INTO alumnos(idAlumno,Nombre,Apellido,Edad,Direccion_Residencia) VALUES ('$IdentifiacionRecibido','$NombreRecibido','$ApellidoRecibido','$EdadRecibido','$DireccionRecibido')";
 if ($conex->query($sql)=== TRUE){
-	echo json_encode('El Estudiante pudo ser registrado');
+	echo json_encode('El Estudiante fue actualizado');
 }else{
-	echo json_encode('El Estudiante no pudo ser registrado');
+	echo json_encode('El Estudiante no fue actualizado');
 }
 $conex->close();
 
